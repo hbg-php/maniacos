@@ -1,4 +1,6 @@
-<img src="https://raw.githubusercontent.com/hbg-php/maniacos/master/laravel/maniacos/resources/images/Logo.png" alt="Maníacos logo" height="300">
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hbg-php/maniacos/master/laravel/maniacos/resources/images/Logo.png" alt="Maníacos logo" height="300">
+</p>
 
 # Maníacos - Sistema de Gerenciamento de Time de Basquete
 
