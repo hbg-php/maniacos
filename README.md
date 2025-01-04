@@ -1,4 +1,4 @@
-<img src="" alt="Hit example" height="300">
+<img src="https://raw.githubusercontent.com/hbg-php/maniacos/master/resources/images/Logo.png" alt="Maníacos logo" height="300">
 
 # Maníacos - Sistema de Gerenciamento de Time de Basquete
 
