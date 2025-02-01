@@ -62,6 +62,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
 
 # Expor a porta 80 do Apache
 EXPOSE 80
+EXPOSE 5173
 
 # Executar o Apache no start do container
 CMD ["apache2-foreground"]
