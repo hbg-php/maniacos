@@ -17,7 +17,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/jogador/cadastrar', [PlayerController::class, 'cadastrar'])->name('jogador.cadastrar');
+    Route::get('/jogadores/', [PlayerController::class, 'players'])->name('players');
+    Route::get('/jogadores/cadastrar', [PlayerController::class, 'create'])->name('players.create');
 });
 
 require __DIR__.'/auth.php';
