@@ -1,36 +1,6 @@
 parameters:
-    # Defina o nível de análise (0 a 8). O nível 0 ignora muitas verificações, e o nível 8 é o mais rigoroso.
     level: 5
-
-    # Diretório onde o PHPStan irá procurar os arquivos para análise
     paths:
-        - maniacos
+        - app
 
-    # Ignorar certos arquivos ou diretórios
-    ignorePaths:
-        - tests/*
-
-    # Diretórios e arquivos onde a análise do PHPStan será ignorada
-    # Exemplo: Ignorar a pasta de testes
-    excludes_analyse:
-        - */tests/*
-
-    # Defina as extensões adicionais que você deseja usar (ex: Laravel, Symfony, etc.)
-    # O PHPStan oferece extensões para frameworks populares.
-    # Exemplo para Laravel:
-    # - vendor/phpstan/extension-installer/src/extension
-
-    # Configurações para lidar com variáveis não definidas e outras regras específicas
-    checkMissingIterableValueType: true
-    checkUnionTypes: true
-    checkTypeAliases: true
-
-    # Pode ser útil para desabilitar ou modificar certas regras
-    disableRuleLevels:
-        - 3  # Isso desabilita a regra de nível 3
-
-    # Defina a análise de tipo para as variáveis e funções
-    inferPrivatePropertyTypeFromConstructor: true
-
-    # Exibir relatórios de análise mais detalhados
     reportUnmatchedIgnoredErrors: true
