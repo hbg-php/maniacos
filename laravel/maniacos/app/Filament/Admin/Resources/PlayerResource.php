@@ -51,11 +51,24 @@ class PlayerResource extends Resource
                             ->label('Categoria')
                             ->required()
                             ->options([
-                                'Sub-13' => 'Sub-13',
-                                'Sub-15' => 'Sub-15',
-                                'Sub-17' => 'Sub-17',
-                                'Adulto' => 'Adulto',
+                                1 => 'Sub-14',
+                                2 => 'Sub-16',
+                                3 => 'Sub-18',
+                                4 => 'Sub-21',
+                                5 => 'Adulto',
                             ]),
+
+                        Forms\Components\CheckboxList::make('positions')
+                            ->label('Posição')
+                            ->required()
+                            ->options([
+                                1 => 'Armador (Point Guard)',
+                                2 => 'Ala-armador (Shooting Guard)',
+                                3 => 'Ala (Small Forward)',
+                                4 => 'Ala-pivô (Power Forward)',
+                                5 => 'Pivô (Center)',
+                            ])
+                            ->columns(),
 
                         Forms\Components\TextInput::make('height')
                             ->label('Altura (cm)')
