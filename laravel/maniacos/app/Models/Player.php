@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Player extends Model
 {
@@ -24,6 +25,7 @@ class Player extends Model
         'height' => 'integer',
         'weight' => 'integer',
         'birthdate' => 'date',
+        'category' => 'integer',
         'isSuspended' => 'boolean',
     ];
 
@@ -32,7 +34,7 @@ class Player extends Model
         'height' => 'nullable|integer',
         'weight' => 'nullable|integer',
         'birthdate' => 'required|date',
-        'category' => 'required|string|max:255',
+        'category' => 'required',
         'email' => 'required|email|unique:players,email',
         'isSuspended' => 'boolean',
     ];
@@ -41,4 +43,10 @@ class Player extends Model
     {
         return $this->birthdate->age;
     }
+
+    public function positions(): BelongsToMany
+    {
+        return $this->belongsToMany(\App\Models\Position::class, 'player_position');
+    }
+
 }

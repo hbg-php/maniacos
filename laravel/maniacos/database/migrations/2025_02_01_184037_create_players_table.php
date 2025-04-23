@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('height')->nullable()->comment('Player height.');
             $table->integer('weight')->nullable()->comment('Player weight.');
             $table->date('birthdate')->comment('Player birthdate.');
-            $table->string('category')->comment('Player category.');
+            $table->enum('category', [1, 2, 3, 4, 5])->comment('Player category (1=Sub-13, 2=Sub-15, ..., 5=Adulto)');
             $table->string('email')->unique()->comment('Player e-mail.');
             $table->boolean('isSuspended')->default(false)->comment('Indicates if player was suspended');
             $table->timestamps();
