@@ -1,0 +1,89 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@config 'tailwind.config.js';
+
+/* Estilo padrão (aplicado quando NÃO existe .dark) */
+html:not(.dark) .fi-body,
+html:not(.dark) .fi-ta,
+
+html:not(.dark) .fi-input,
+html:not(.dark) .fi-select-input,
+html:not(.dark) .fi-fo-date-time-picker-display-text-input {
+    background-color: #fffbea;
+    color: #000;
+}
+
+html:not(.dark) .fi-section-content {
+    background-color: #f5f3ff;
+}
+
+html:not(.dark) .fi-form {
+    padding: 20px;
+}
+
+html:not(.dark) .fi-topbar,
+html:not(.dark) .fi-simple-main,
+html:not(.dark) .fi-ta-ctn {
+    background-color: #f5f3ff;
+}
+
+html:not(.dark) .fi-sidebar,
+html:not(.dark) .fi-simple-main-ctn {
+    background-color: #B93BF5;
+}
+
+html:not(.dark) .fi-sidebar-item-label,
+html:not(.dark) .fi-sidebar-item-icon {
+    color: white;
+}
+
+html:not(.dark) .fi-sidebar-item-button:hover .fi-sidebar-item-label,
+html:not(.dark) .fi-sidebar-item-button:focus-visible .fi-sidebar-item-label {
+    color: #d97706;
+}
+
+html:not(.dark) .fi-sidebar-item-button:focus-visible .fi-sidebar-item-icon,
+html:not(.dark) .fi-sidebar-item-button:hover .fi-sidebar-item-icon {
+    color: #d97706;
+}
+
+html:not(.dark) .fi-ta-row:hover {
+    background-color: #B93BF5;
+}
+
+/*.fi-body, .fi-ta, .fi-simple-main-ctn, .fi-input, .fi-select-input, .fi-fo-date-time-picker-display-text-input {
+    background-color: #fffbea;
+}
+
+.fi-section-content {
+    background-color: #f5f3ff;
+}
+
+.fi-form {
+    padding: 20px;
+}
+
+.fi-topbar, .fi-sidebar, .fi-simple-main, .fi-ta-ctn {
+    background-color: #f5f3ff;
+}*/
+
+/*.dark .fi-body,
+.dark .fi-ta,
+.dark .fi-simple-main-ctn,
+.dark .fi-simple-main,
+.dark .fi-input,
+.dark .fi-select-input,
+.dark .fi-fo-date-time-picker-display-text-input {
+    background-color: #B93BF5;
+    color: #F5EF31;*/
+    /*background-color: #8515F5;
+    color: #F5EF31;
+}*/
+
+/*.dark .fi-simple-main-ctn {
+    background-color: #111;
+}
+
+.dark .fi-select-input, .dark .fi-input {
+    background-color: #111;
+}*/
