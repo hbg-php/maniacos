@@ -6,6 +6,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Pages\Auth\Register;
+use Illuminate\Support\Facades\Auth;
 
 class UserRegister extends Register
 {
@@ -55,6 +56,8 @@ class UserRegister extends Register
 
     protected function handleRegistration(array $data): \Illuminate\Database\Eloquent\Model
     {
+        $data['created_by'] = Auth::id();
+
         return $this->getUserModel()::create($data);
     }
 }
