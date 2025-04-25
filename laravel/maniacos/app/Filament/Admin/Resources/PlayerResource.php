@@ -3,15 +3,12 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\PlayerResource\Pages;
-use App\Filament\Admin\Resources\PlayerResource\RelationManagers;
 use App\Models\Player;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PlayerResource extends Resource
 {
@@ -87,7 +84,7 @@ class PlayerResource extends Resource
                             ->default(false)
                             ->onColor('danger')
                             ->offColor('success'),
-                    ])->columns(2)
+                    ])->columns()
             ]);
     }
 
@@ -95,7 +92,39 @@ class PlayerResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Nome')
+                    ->sortable()
+                    ->searchable(),
+
+                Tables\Columns\TextColumn::make('category')
+                    ->label('Categoria')
+                    ->sortable()
+                    ->badge()
+                    ->formatStateUsing(fn (int $state): string => match ($state) {
+                        1 => 'Sub-14',
+                        2 => 'Sub-16',
+                        3 => 'Sub-18',
+                        4 => 'Sub-21',
+                        5 => 'Adulto',
+                        default => 'Desconhecida',
+                    }),
+
+                Tables\Columns\TextColumn::make('height')
+                    ->label('Altura (cm)')
+                    ->sortable(),
+
+                Tables\Columns\TextColumn::make('weight')
+                    ->label('Peso (kg)')
+                    ->sortable(),
+
+                Tables\Columns\IconColumn::make('isSuspended')
+                    ->label('Suspenso')
+                    ->boolean()
+                    ->trueIcon('heroicon-o-check-circle')
+                    ->falseIcon('heroicon-o-x-circle')
+                    ->trueColor('success')
+                    ->falseColor('danger'),
             ])
             ->filters([
                 //

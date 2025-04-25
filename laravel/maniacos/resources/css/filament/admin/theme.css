@@ -32,12 +32,12 @@ html:not(.dark) .fi-simple-main-ctn {
     background-color: #B93BF5;
 }
 
-html:not(.dark) .fi-sidebar-item-label,
+/*html:not(.dark) .fi-sidebar-item-label,
 html:not(.dark) .fi-sidebar-item-icon {
     color: white;
-}
+}*/
 
-html:not(.dark) .fi-sidebar-item-button:hover .fi-sidebar-item-label,
+/*html:not(.dark) .fi-sidebar-item-button:hover .fi-sidebar-item-label,
 html:not(.dark) .fi-sidebar-item-button:focus-visible .fi-sidebar-item-label {
     color: #d97706;
 }
@@ -45,7 +45,7 @@ html:not(.dark) .fi-sidebar-item-button:focus-visible .fi-sidebar-item-label {
 html:not(.dark) .fi-sidebar-item-button:focus-visible .fi-sidebar-item-icon,
 html:not(.dark) .fi-sidebar-item-button:hover .fi-sidebar-item-icon {
     color: #d97706;
-}
+}*/
 
 html:not(.dark) .fi-ta-row:hover {
     background-color: #B93BF5;

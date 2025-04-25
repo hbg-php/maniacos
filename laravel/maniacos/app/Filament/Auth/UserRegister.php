@@ -57,6 +57,7 @@ class UserRegister extends Register
     protected function handleRegistration(array $data): \Illuminate\Database\Eloquent\Model
     {
         $data['created_by'] = Auth::id();
+        $data['is_admin'] = false;
 
         return $this->getUserModel()::create($data);
     }
