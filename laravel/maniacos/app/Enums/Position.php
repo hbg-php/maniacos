@@ -4,11 +4,11 @@ namespace app\Enums;
 
 enum Position: int
 {
-    case PointGuard = 1; // Armador
-    case ShootingGuard = 2; // Ala-armador
-    case SmallForward = 3; // Ala
-    case PowerForward = 4; // Ala-pivô
-    case Center = 5; // Pivô
+    case PointGuard = 1;
+    case ShootingGuard = 2;
+    case SmallForward = 3;
+    case PowerForward = 4;
+    case Center = 5;
 
     public function label(): string
     {

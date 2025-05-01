@@ -3,7 +3,9 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\PlayerResource\Pages;
+use App\Filament\Exports\PlayerExporter;
 use App\Models\Player;
+use Filament\Actions\Exports\Enums\ExportFormat;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -19,6 +21,8 @@ class PlayerResource extends Resource
     protected static ?string $modelLabel = 'Jogador';
 
     protected static ?string $pluralModelLabel = 'Jogadores';
+
+    protected static ?string $navigationGroup = 'Equipes';
 
     public static function form(Form $form): Form
     {
@@ -48,11 +52,15 @@ class PlayerResource extends Resource
                             ->label('Categoria')
                             ->required()
                             ->options([
-                                1 => 'Sub-14',
+                                1 => 'Sub-15',
                                 2 => 'Sub-16',
-                                3 => 'Sub-18',
-                                4 => 'Sub-21',
-                                5 => 'Adulto',
+                                3 => 'Sub-17',
+                                4 => 'Sub-18',
+                                5 => 'Sub-19',
+                                6 => 'Sub-20',
+                                7 => 'Sub-21',
+                                8 => 'Sub-22',
+                                9 => 'Adulto',
                             ]),
 
                         Forms\Components\CheckboxList::make('positions')
@@ -65,7 +73,8 @@ class PlayerResource extends Resource
                                 4 => 'Ala-pivô (Power Forward)',
                                 5 => 'Pivô (Center)',
                             ])
-                            ->columns(),
+                            ->columns()
+                            ->relationship('position_id', 'position'),
 
                         Forms\Components\TextInput::make('height')
                             ->label('Altura (cm)')
@@ -84,7 +93,7 @@ class PlayerResource extends Resource
                             ->default(false)
                             ->onColor('danger')
                             ->offColor('success'),
-                    ])->columns()
+                    ])->columns(),
             ]);
     }
 
@@ -102,12 +111,15 @@ class PlayerResource extends Resource
                     ->sortable()
                     ->badge()
                     ->formatStateUsing(fn (int $state): string => match ($state) {
-                        1 => 'Sub-14',
+                        1 => 'Sub-15',
                         2 => 'Sub-16',
-                        3 => 'Sub-18',
-                        4 => 'Sub-21',
-                        5 => 'Adulto',
-                        default => 'Desconhecida',
+                        3 => 'Sub-17',
+                        4 => 'Sub-18',
+                        5 => 'Sub-19',
+                        6 => 'Sub-20',
+                        7 => 'Sub-21',
+                        8 => 'Sub-22',
+                        9 => 'Adulto',
                     }),
 
                 Tables\Columns\TextColumn::make('height')
@@ -127,7 +139,20 @@ class PlayerResource extends Resource
                     ->falseColor('danger'),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('category')
+                    ->label('Categoria')
+                    ->multiple()
+                    ->options([
+                        1 => 'Sub-15',
+                        2 => 'Sub-16',
+                        3 => 'Sub-17',
+                        4 => 'Sub-18',
+                        5 => 'Sub-19',
+                        6 => 'Sub-20',
+                        7 => 'Sub-21',
+                        8 => 'Sub-22',
+                        9 => 'Adulto',
+                    ]),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -136,6 +161,15 @@ class PlayerResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ])
+            ->headerActions([
+                Tables\Actions\ExportAction::make()
+                    ->exporter(PlayerExporter::class)
+                    ->label('Planilha')
+                    ->formats([
+                        ExportFormat::Xlsx,
+                    ])
+                    ->fileName(fn (): string => 'jogadores'),
             ]);
     }
 
