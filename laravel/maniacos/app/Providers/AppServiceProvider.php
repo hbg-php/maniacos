@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use Filament\Actions\CreateAction;
+use Filament\Facades\Filament;
 use Illuminate\Support\ServiceProvider;
+use Saade\FilamentFullCalendar\FilamentFullCalendarPlugin;
 
 class AppServiceProvider extends ServiceProvider
 {
